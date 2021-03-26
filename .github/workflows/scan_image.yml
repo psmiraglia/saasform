@@ -16,7 +16,7 @@ jobs:
       with:
         image: psmiraglia/saasform:latest
         debug: false
-        fail-build: true
+        fail-build: false
     -
       name: Inspect workspace
       run: ls -al
