@@ -1,0 +1,20 @@
+name: build multi arch
+
+on:
+  push:
+    branches:
+      - wip/scan-image-with-anchore
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Scan with Anchore
+      id: scan
+      uses: anchore/scan-action@v2
+      with:
+        image: psmiraglia/saasform:latest
+    -
+      name: Grype scan JSON results
+      run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
