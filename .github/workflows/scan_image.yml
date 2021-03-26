@@ -22,4 +22,4 @@ jobs:
       run: ls -al
     -
       name: Grype scan JSON results
-      run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
+      run: for j in `ls *.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
